@@ -1,7 +1,7 @@
 {
   "name": "work-markes",
   "version": "1.0.0",
-  "description": "Extension to calculate the hour to leave the work.",
+  "description": "Extension to calculate the hours to leave the work.",
   "author": "Carlos Eduardo dos Santos",
   "license": "MIT",
   "main": "dist/bundle.js",
