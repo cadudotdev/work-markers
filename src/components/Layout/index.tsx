@@ -1,6 +1,14 @@
 import React, { FC } from 'react';
-import { LayoutContainer } from './styles';
+import { LayoutContainer, Separator } from './styles';
+
+import { Marker } from '@component/Marker';
+import { Result } from '@component/Result';
 
 export const Layout: FC<any> = () => {
-  return <LayoutContainer>Torta</LayoutContainer>;
+
+  return <LayoutContainer>
+    < Marker />
+    <Separator />
+    <Result />
+  </LayoutContainer>;
 };
