@@ -1,0 +1,33 @@
+{
+  "compilerOptions": {
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "skipLibCheck": true,
+    "target": "ES2019",
+    "allowJs": false,
+    "experimentalDecorators": true,
+    "resolveJsonModule": true,
+    "declaration": false,
+    "lib": [
+      "ES2020",
+      "DOM"
+    ],
+    "module": "ESNext",
+    "jsx": "react-jsx",
+    "sourceMap": true,
+    "baseUrl": "./",
+    "moduleResolution": "node",
+    "paths": {
+      "@component/*": [
+        "./src/components/*"
+      ]
+    }
+  },
+  "exclude": [
+    "node_modules/**/*",
+    "dist"
+  ],
+  "include": [
+    "./src/**/*"
+  ]
+}
