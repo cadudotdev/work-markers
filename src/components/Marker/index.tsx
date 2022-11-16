@@ -8,7 +8,7 @@ import {
 
 import { Button } from '@component/Button';
 
-export const Marker: FC<any> = () => {
+export const Marker: FC<any> = ({ title }) => {
 
   return <TimeMarkerContainer>
     <MarkerContainer
@@ -17,6 +17,6 @@ export const Marker: FC<any> = () => {
     <MarkerContainer
       value={'00'} />
     <Separator />
-    <Button title={'Add new marker'} />
+    <Button title={title} />
   </TimeMarkerContainer>;
 };

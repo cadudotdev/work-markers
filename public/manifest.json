@@ -2,7 +2,7 @@
   "name": "Work Markers",
   "version": "1.0",
   "author": "Carlos Eduardo dos Santos",
-  "description": "Extension to calculate the hour to leave the work",
+  "description": "Extension to calculate the hours to leave the work",
   "action": {
     "default_popup": "index.html"
   },

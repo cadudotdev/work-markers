@@ -4,9 +4,10 @@ import { ButtonContainer } from './styles';
 
 interface ButtonProps {
   title: string;
+  onClick?: any;
 }
 
-export const Button: FC<ButtonProps> = ({ title }) => {
+export const Button: FC<ButtonProps> = ({ title, onClick }) => {
 
-  return <ButtonContainer>{title}</ButtonContainer>;
+  return <ButtonContainer onClick={() => onClick()}>{title}</ButtonContainer>;
 };
