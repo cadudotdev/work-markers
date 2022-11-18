@@ -4,12 +4,12 @@ export interface ContextValue {
 }
 
 export interface Button {
-  index: number;
   title: string;
   action: Action;
 }
 
 export interface Marker {
+  index: number;
   time: Date,
   format: TimeFormat,
   button: Button;
