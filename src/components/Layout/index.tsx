@@ -9,7 +9,7 @@ interface State {
   isConfigMode: boolean;
 }
 
-export const Layout: FC<any> = () => {
+export const Layout: FC = () => {
   const ctx = useContext(GlobalContext);
   const [state, setState] = useState<State>({
     isConfigMode: false

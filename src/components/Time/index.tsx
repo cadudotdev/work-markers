@@ -1,9 +1,9 @@
 import React, { FC, useState } from 'react';
 
 import { TimeContainer, InputContainer, Separator } from './styles';
+import { TimeFormat } from 'src/types';
 
 type TimeType = 'HOURS' | 'MINUTES';
-type TimeFormat = '24H' | 'AM/PM';
 
 const getEmptyDate = () => {
   return new Date(null, null, null, 0, 0, 0, 0);
