@@ -7,16 +7,17 @@ import {
 
 import { Button } from '@component/Button';
 import { Time } from '@component/Time';
+import { Marker as MarkerType } from 'src/types';
 
 interface MarkerProps {
-  title: string;
+  data: MarkerType;
 }
 
-export const Marker: FC<MarkerProps> = ({ title }) => {
+export const Marker: FC<MarkerProps> = ({ data }) => {
 
   return <TimeMarkerContainer>
     <Time format='24H' />
     <Separator />
-    <Button title={title} />
+    <Button title={data.button.title} />
   </TimeMarkerContainer>;
 };
