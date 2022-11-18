@@ -3,19 +3,19 @@ import React, { FC } from 'react';
 import {
   TimeMarkerContainer,
   Separator,
-  MarkerContainer,
 } from './styles';
 
 import { Button } from '@component/Button';
+import { Time } from '@component/Time';
 
-export const Marker: FC<any> = ({ title }) => {
+interface MarkerProps {
+  title: string;
+}
+
+export const Marker: FC<MarkerProps> = ({ title }) => {
 
   return <TimeMarkerContainer>
-    <MarkerContainer
-      value={'00'} />
-    <Separator>:</Separator>
-    <MarkerContainer
-      value={'00'} />
+    <Time format='24H' />
     <Separator />
     <Button title={title} />
   </TimeMarkerContainer>;
