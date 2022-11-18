@@ -16,7 +16,7 @@ interface MarkerProps {
 export const Marker: FC<MarkerProps> = ({ data }) => {
 
   return <TimeMarkerContainer>
-    <Time format={data.format} />
+    <Time format={data.format} data={data.time} />
     <Separator />
     <Button title={data.button.title} />
   </TimeMarkerContainer>;
