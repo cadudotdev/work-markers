@@ -24,7 +24,7 @@ export const Layout: FC = () => {
 
   return state.isConfigMode ?
     <LayoutContainer>
-      <Button title='Config' onClick={() => handleOnClick()} />
+      <Button title='CONFIG' onClick={() => handleOnClick()} />
       <Separator />
       <div>
         <span>Language</span>
@@ -32,11 +32,11 @@ export const Layout: FC = () => {
       </div>
     </LayoutContainer> :
     <LayoutContainer>
-      <Button title='Config' onClick={() => handleOnClick()} />
+      <Button title='CONFIG' onClick={() => handleOnClick()} />
       <Separator />
       {
         ctx.state.map((marker, idx) => (
-          <Marker key={idx} data={marker} />
+          <Marker key={idx} data={marker} isLast={ctx.state.length === idx + 1} />
         ))
       }
       <Separator />

@@ -9,10 +9,11 @@ export interface Button {
 }
 
 export interface Marker {
-  index: number;
+  id: number;
   time: Date,
   format: TimeFormat,
-  button: Button;
+  createdAt: number;
+  deletedAt: number;
 }
 
 export type TimeFormat = '24H' | 'AM/PM';
