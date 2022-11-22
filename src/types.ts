@@ -18,3 +18,4 @@ export interface Marker {
 
 export type TimeFormat = '24H' | 'AM/PM';
 export type Action = 'CREATE' | 'REMOVE';
+export type TimeSome = 'TIME_WORKED' | 'WORK_INTERVAL';
