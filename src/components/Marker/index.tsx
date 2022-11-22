@@ -20,13 +20,15 @@ export const Marker: FC<MarkerProps> = ({ data, isLast }) => {
   const ctx = useContext(GlobalContext);
 
   function onClickFunction() {
-    const uniqueId = new Date().getTime();
-    const marker = createMarker('24H', { id: uniqueId });
+    const newId = ctx.id + 1;
+    const marker = createMarker('24H', { id: newId });
+
+    ctx.setId(newId);
 
     if (isLast) {
-      ctx.setState(prevState => ([...prevState, marker]));
+      ctx.setMarkers(prevState => ([...prevState, marker]));
     } else {
-      ctx.setState(prevState => {
+      ctx.setMarkers(prevState => {
         return [...prevState
           .filter(marker => marker.id !== data.id)];
       });

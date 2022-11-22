@@ -1,6 +1,8 @@
 export interface ContextValue {
-  state: Marker[],
-  setState: React.Dispatch<React.SetStateAction<Marker[]>>,
+  markers: Marker[],
+  setMarkers: React.Dispatch<React.SetStateAction<Marker[]>>;
+  id: number;
+  setId: React.Dispatch<number>,
 }
 
 export interface Button {
