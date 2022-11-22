@@ -9,7 +9,7 @@ import { createMarker } from 'src/templates/initial';
 
 export const App: FC = () => {
   const [markers, setMarkers] = useState<Marker[]>([
-    createMarker('24H', { id: 1, time: moment({ hours: 10, minutes: 0 }).toDate() })
+    createMarker('24H', { id: 1 })
   ]);
   const [id, setId] = useState(1);
 
