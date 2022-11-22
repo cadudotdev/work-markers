@@ -16,31 +16,31 @@ export const Result: FC = () => {
   const ctx = useContext(GlobalContext);
 
   function getFormattedTimeWorked(): string {
-    return moment(getTimeSome(ctx.state, 'TIME_WORKED'))
+    return moment(getTimeSome(ctx.markers, 'TIME_WORKED'))
       .format(timeFormat);
   }
 
   function getFormattedWorkInterval(): string {
-    return getTimeSome(ctx.state, 'WORK_INTERVAL')
+    return getTimeSome(ctx.markers, 'WORK_INTERVAL')
       .format(timeFormat);
   }
 
   function getFormattedExtraTimeWork(): string {
     return getExtraTimeWork(
-      getTimeSome(ctx.state, 'TIME_WORKED'),
+      getTimeSome(ctx.markers, 'TIME_WORKED'),
       timeToWork
     ).format(timeFormat);
   }
 
   function getFormattedWorkIntervalDiff(): string {
     return getTimeDiff(
-      getTimeSome(ctx.state, 'WORK_INTERVAL'), workInterval
+      getTimeSome(ctx.markers, 'WORK_INTERVAL'), workInterval
     ).format(timeFormat);
   }
 
   function getFormattedTimeWorkedDiff(): string {
     return getTimeDiff(
-      getTimeSome(ctx.state, 'TIME_WORKED'),
+      getTimeSome(ctx.markers, 'TIME_WORKED'),
       timeToWork
     ).format(timeFormat);
   }
@@ -48,7 +48,7 @@ export const Result: FC = () => {
   function getFormattedExtraTimeWorkDiff(): string {
     return getTimeDiff(
       getExtraTimeWork(
-        getTimeSome(ctx.state, 'TIME_WORKED'),
+        getTimeSome(ctx.markers, 'TIME_WORKED'),
         timeToWork
       ), extraTime).format(timeFormat);
   }

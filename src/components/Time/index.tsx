@@ -25,13 +25,13 @@ export const Time: FC<TimeProps> = ({ data }) => {
   function onChangeFunction(value: string, type: TimeType, format?: TimeFormat) {
     const newValue = Number(value);
 
-    const globalMarker = ctx.state.find(marker => data.id === marker.id);
+    const globalMarker = ctx.markers.find(marker => data.id === marker.id);
 
     if (type === 'HOURS' && format === 'AM/PM' && Number(value) <= 12
       || format === '24H' && Number(value) <= 23) {
       const date = new Date(null, null, null, newValue, state.minutes, 0);
 
-      ctx.setState(prevState => ([
+      ctx.setMarkers(prevState => ([
         ...prevState.filter(marker => globalMarker.id !== marker.id),
         { ...globalMarker, time: date }
       ]));
@@ -42,7 +42,7 @@ export const Time: FC<TimeProps> = ({ data }) => {
     if (type === 'MINUTES' && Number(value) <= 59) {
       const date = new Date(null, null, null, state.hours, newValue, 0);
 
-      ctx.setState(prevState => ([
+      ctx.setMarkers(prevState => ([
         ...prevState.filter(marker => globalMarker.id !== marker.id),
         { ...globalMarker, time: date }
       ]));

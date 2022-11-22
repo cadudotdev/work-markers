@@ -35,8 +35,8 @@ export const Layout: FC = () => {
       <Button title='CONFIG' onClick={() => handleOnClick()} />
       <Separator />
       {
-        ctx.state.map((marker, idx) => (
-          <Marker key={idx} data={marker} isLast={ctx.state.length === idx + 1} />
+        ctx.markers.map((marker, idx) => (
+          <Marker key={idx} data={marker} isLast={ctx.markers.length === idx + 1} />
         ))
       }
       <Separator />
