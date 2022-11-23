@@ -39,6 +39,5 @@ export const Marker: FC<MarkerProps> = ({ data, isLast }) => {
     <Separator />
     <Button title={isLast ? 'ADD' : 'REMOVE'} onClick={() => onClickFunction()} />
     <Separator />
-    <div>{`ID: ${data.id.toString()}`}</div>
   </TimeMarkerContainer>;
 };

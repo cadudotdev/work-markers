@@ -52,7 +52,12 @@ interface TimeWorkedDiff {
 }
 
 export function getTimeWorkedDiff(worked: Date,
-  target: Date): TimeWorkedDiff {
+  target: Date, markersLength: number): TimeWorkedDiff {
+
+  if (!isNumberEven(markersLength)) return {
+    time: moment({ hours: 0, minutes: 0 }).toDate(),
+    isPositive: true
+  };
 
   if (!(worked && target)) return {
     time: emptyDate,
@@ -81,7 +86,9 @@ export function getTimeWorkedDiff(worked: Date,
 }
 
 export function getExtraTimeWork(worked: Moment,
-  target: Moment): Moment {
+  target: Moment, markersLength: number): Moment {
+
+  if (!isNumberEven(markersLength)) return moment({ hours: 0, minutes: 0 });
 
   if (worked.isAfter(target)) {
     const diff = worked.diff(target);
@@ -98,7 +105,9 @@ export function getExtraTimeWork(worked: Moment,
 }
 
 export function getTimeDiff(interval: Moment,
-  target: Moment): Moment {
+  target: Moment, markersLength: number): Moment {
+
+  if (!isNumberEven(markersLength)) return moment({ hours: 0, minutes: 0 });
 
   const diff = interval.diff(target);
   const date = moment({ hours: 0, minutes: 0 });

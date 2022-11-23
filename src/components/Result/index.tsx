@@ -28,20 +28,20 @@ export const Result: FC = () => {
   function getFormattedExtraTimeWork(): string {
     return getExtraTimeWork(
       getTimeSome(ctx.markers, 'TIME_WORKED'),
-      timeToWork
+      timeToWork, ctx.markers.length
     ).format(timeFormat);
   }
 
   function getFormattedWorkIntervalDiff(): string {
     return getTimeDiff(
-      getTimeSome(ctx.markers, 'WORK_INTERVAL'), workInterval
+      getTimeSome(ctx.markers, 'WORK_INTERVAL'), workInterval, ctx.markers.length
     ).format(timeFormat);
   }
 
   function getFormattedTimeWorkedDiff(): string {
     return getTimeDiff(
       getTimeSome(ctx.markers, 'TIME_WORKED'),
-      timeToWork
+      timeToWork, ctx.markers.length
     ).format(timeFormat);
   }
 
@@ -49,8 +49,8 @@ export const Result: FC = () => {
     return getTimeDiff(
       getExtraTimeWork(
         getTimeSome(ctx.markers, 'TIME_WORKED'),
-        timeToWork
-      ), extraTime).format(timeFormat);
+        timeToWork, ctx.markers.length
+      ), extraTime, ctx.markers.length).format(timeFormat);
   }
 
   return <ResultContainer>
