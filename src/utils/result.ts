@@ -1,23 +1,9 @@
 import moment, { Moment } from 'moment';
-import { Marker, TimeSome } from 'src/types';
+import { Marker, SumType } from 'src/types';
 
-const emptyDate = new Date(null, null, null, 0, 0);
-
-export function isEven(arr: Marker[]): boolean {
-  return arr && arr.length % 2 === 0;
-}
-
-export function isNumberEven(value: number): boolean {
-  return !isNaN(value) && value % 2 === 0;
-}
-
-export function isNumberOdd(value: number): boolean {
-  return !isNaN(value) && Math.abs(value % 2) === 1;
-}
-
-export function getTimeSome(arr: Marker[],
-  returnType: TimeSome): Moment {
-  if (!(arr && isEven(arr))) return moment(emptyDate);
+export function getTimeSum(arr: Marker[],
+  context: SumType): Moment {
+  if (!(arr && isEven(arr))) return moment({ hours: 0, minutes: 0 });
 
   let totalHours = 0;
   let totalMinutes = 0;
@@ -26,9 +12,9 @@ export function getTimeSome(arr: Marker[],
     const hours = arr[i].time.getHours();
     const minutes = arr[i].time.getMinutes();
 
-    const returnTimeWorked = returnType === 'TIME_WORKED'
+    const returnTimeWorked = context === 'TIME_WORKED'
       && isNumberEven(i) && arr[i + 1];
-    const returnWorkInterval = returnType === 'WORK_INTERVAL'
+    const returnWorkInterval = context === 'WORK_INTERVAL'
       && isNumberOdd(i) && arr[i + 1];
 
     if (returnTimeWorked || returnWorkInterval) {
@@ -60,7 +46,7 @@ export function getTimeWorkedDiff(worked: Date,
   };
 
   if (!(worked && target)) return {
-    time: emptyDate,
+    time: moment({ hours: 0, minutes: 0 }).toDate(),
     isPositive: true
   };
 
@@ -113,4 +99,16 @@ export function getTimeDiff(interval: Moment,
   const date = moment({ hours: 0, minutes: 0 });
   date.add({ milliseconds: Math.abs(diff) });
   return date;
+}
+
+export function isEven(arr: Marker[]): boolean {
+  return arr && arr.length % 2 === 0;
+}
+
+export function isNumberEven(value: number): boolean {
+  return !isNaN(value) && value % 2 === 0;
+}
+
+export function isNumberOdd(value: number): boolean {
+  return !isNaN(value) && Math.abs(value % 2) === 1;
 }

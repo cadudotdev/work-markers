@@ -3,6 +3,7 @@ import React, { FC, useState, useContext } from 'react';
 import { TimeContainer, InputContainer, Separator } from './styles';
 import { Marker, TimeFormat } from 'src/types';
 import { GlobalContext } from 'src/Context';
+import moment from 'moment';
 
 type TimeType = 'HOURS' | 'MINUTES';
 
@@ -29,7 +30,7 @@ export const Time: FC<TimeProps> = ({ data }) => {
 
     if (type === 'HOURS' && format === 'AM/PM' && Number(value) <= 12
       || format === '24H' && Number(value) <= 23) {
-      const date = new Date(null, null, null, newValue, state.minutes, 0);
+      const date = moment({ hours: newValue, minutes: state.minutes }).toDate();
 
       ctx.setMarkers(prevState => ([
         ...prevState.filter(marker => globalMarker.id !== marker.id),
@@ -40,7 +41,7 @@ export const Time: FC<TimeProps> = ({ data }) => {
     }
 
     if (type === 'MINUTES' && Number(value) <= 59) {
-      const date = new Date(null, null, null, state.hours, newValue, 0);
+      const date = moment({ hours: state.hours, minutes: newValue }).toDate();
 
       ctx.setMarkers(prevState => ([
         ...prevState.filter(marker => globalMarker.id !== marker.id),

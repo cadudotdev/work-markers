@@ -1,6 +1,6 @@
 import React, { FC, useContext } from 'react';
 import { GlobalContext } from 'src/Context';
-import { getTimeSome, getExtraTimeWork, getTimeDiff } from 'src/utils';
+import { getTimeSum, getExtraTimeWork, getTimeDiff } from 'src/utils';
 import moment from 'moment';
 
 import { ResultContainer, TitleContainer, TimeContainer, TrContainer } from './styles';
@@ -16,31 +16,31 @@ export const Result: FC = () => {
   const ctx = useContext(GlobalContext);
 
   function getFormattedTimeWorked(): string {
-    return moment(getTimeSome(ctx.markers, 'TIME_WORKED'))
+    return moment(getTimeSum(ctx.markers, 'TIME_WORKED'))
       .format(timeFormat);
   }
 
   function getFormattedWorkInterval(): string {
-    return getTimeSome(ctx.markers, 'WORK_INTERVAL')
+    return getTimeSum(ctx.markers, 'WORK_INTERVAL')
       .format(timeFormat);
   }
 
   function getFormattedExtraTimeWork(): string {
     return getExtraTimeWork(
-      getTimeSome(ctx.markers, 'TIME_WORKED'),
+      getTimeSum(ctx.markers, 'TIME_WORKED'),
       timeToWork, ctx.markers.length
     ).format(timeFormat);
   }
 
   function getFormattedWorkIntervalDiff(): string {
     return getTimeDiff(
-      getTimeSome(ctx.markers, 'WORK_INTERVAL'), workInterval, ctx.markers.length
+      getTimeSum(ctx.markers, 'WORK_INTERVAL'), workInterval, ctx.markers.length
     ).format(timeFormat);
   }
 
   function getFormattedTimeWorkedDiff(): string {
     return getTimeDiff(
-      getTimeSome(ctx.markers, 'TIME_WORKED'),
+      getTimeSum(ctx.markers, 'TIME_WORKED'),
       timeToWork, ctx.markers.length
     ).format(timeFormat);
   }
@@ -48,7 +48,7 @@ export const Result: FC = () => {
   function getFormattedExtraTimeWorkDiff(): string {
     return getTimeDiff(
       getExtraTimeWork(
-        getTimeSome(ctx.markers, 'TIME_WORKED'),
+        getTimeSum(ctx.markers, 'TIME_WORKED'),
         timeToWork, ctx.markers.length
       ), extraTime, ctx.markers.length).format(timeFormat);
   }
