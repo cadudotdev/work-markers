@@ -1,9 +1,8 @@
 import React, { FC, useState, useEffect } from 'react';
 import { GlobalContext } from 'src/Context';
-import { Layout } from '@component/Layout';
+import { Layout } from 'src/components/Layout';
 import { Marker } from 'src/types';
 import { GlobalStyles } from './styles';
-import moment from 'moment';
 
 import { createMarker } from 'src/templates/initial';
 

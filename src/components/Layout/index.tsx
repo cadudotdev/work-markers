@@ -1,8 +1,8 @@
 import React, { FC, useState, useContext } from 'react';
 import { LayoutContainer, Separator } from './styles';
-import { Marker } from '@component/Marker';
-import { Result } from '@component/Result';
-import { Button } from '@component/Button';
+import { Marker } from '@components/Marker';
+import { Result } from '@components/Result';
+import { Button } from '@components/Button';
 import { GlobalContext } from 'src/Context';
 
 interface State {

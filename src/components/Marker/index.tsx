@@ -5,8 +5,8 @@ import {
   Separator,
 } from './styles';
 
-import { Button } from '@component/Button';
-import { Time } from '@component/Time';
+import { Button } from 'src/components/Button';
+import { Time } from '@components/Time';
 import { Marker as MarkerType } from 'src/types';
 import { GlobalContext } from 'src/Context';
 import { createMarker } from 'src/templates/initial';
